@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.navigation_home:
                             selectedFragment = new HomeFragment();
                             break;
-                        case R.id.navigation_history:
-                            selectedFragment = new HistoryFragment();
+                        case R.id.navigation_categories:
+                            selectedFragment = new CategoriesFragment();
                             break;
                         case R.id.navigation_settings:
                             selectedFragment = new SettingsFragment();
