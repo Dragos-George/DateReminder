@@ -1,4 +1,4 @@
-package com.example.datereminder;
+package com.example.datereminder.Model;
 
 public class UserSettings {
 
