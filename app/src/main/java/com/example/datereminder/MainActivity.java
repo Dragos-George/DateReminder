@@ -12,6 +12,8 @@ import com.example.datereminder.MainMenuFragments.HomeFragment;
 import com.example.datereminder.MainMenuFragments.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -25,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,
                     new HomeFragment()).commit();
         }
+
+        ArrayList<FirstItem> firstItem = new ArrayList<>();
+        firstItem.add(new FirstItem(R.drawable.ic_fire24dp, "Line 1", "Line 2"));
+        firstItem.add(new FirstItem(R.drawable.ic_fire24dp, "Line 3", "Line 4"));
+        firstItem.add(new FirstItem(R.drawable.ic_fire24dp, "Line 5", "Line 6"));
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
