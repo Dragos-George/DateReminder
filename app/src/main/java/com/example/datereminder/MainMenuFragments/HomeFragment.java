@@ -1,4 +1,4 @@
-package com.example.datereminder;
+package com.example.datereminder.MainMenuFragments;
 
 
 import androidx.annotation.NonNull;
@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.datereminder.R;
 
 
 public class HomeFragment extends Fragment {
