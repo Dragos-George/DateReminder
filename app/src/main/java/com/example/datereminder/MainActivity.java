@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.datereminder.MainMenuFragments.CategoriesFragment;
+import com.example.datereminder.MainMenuFragments.HomeFragment;
+import com.example.datereminder.MainMenuFragments.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
