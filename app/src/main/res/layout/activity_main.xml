@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
+
     <FrameLayout
         android:id="@+id/frame_container"
         android:layout_width="match_parent"
@@ -28,9 +28,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:background="@color/white"
-            app:itemIconTint="@color/navy"
-            app:itemTextColor="@color/navy"
-            app:menu="@menu/buttom_navigation"
-            />
+            app:itemIconTint="@drawable/bottom_navigation_selector"
+            app:itemTextColor="@drawable/bottom_navigation_selector"
+            app:menu="@menu/buttom_navigation" />
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
