@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/lime">
+
+    <Toolbar
+        android:id="@+id/fragment_history_toolbar"
+        style="@style/MyToolbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                style="@style/ToolbarText"
+                android:text="@string/home" />
+
+        </RelativeLayout>
+
+    </Toolbar>
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:text="Home Fragment"
-        android:textSize="30dp"
-        android:layout_centerInParent="true"/>
+        android:textSize="30dp" />
 
 </RelativeLayout>
