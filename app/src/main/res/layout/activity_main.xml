@@ -31,5 +31,6 @@
             app:itemIconTint="@drawable/bottom_navigation_selector"
             app:itemTextColor="@drawable/bottom_navigation_selector"
             app:menu="@menu/buttom_navigation" />
+
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

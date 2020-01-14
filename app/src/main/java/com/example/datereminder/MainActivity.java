@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import com.example.datereminder.MainMenuFragments.CategoriesFragment;
 import com.example.datereminder.MainMenuFragments.HomeFragment;
 import com.example.datereminder.MainMenuFragments.SettingsFragment;
+import com.example.datereminder.Model.FutureAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -37,10 +39,18 @@ public class MainActivity extends AppCompatActivity {
                     new HomeFragment()).commit();
         }
 
-        ArrayList<FirstItem> firstItem = new ArrayList<>();
-        firstItem.add(new FirstItem(R.drawable.ic_fire24dp, "Line 1", "Line 2"));
-        firstItem.add(new FirstItem(R.drawable.ic_fire24dp, "Line 3", "Line 4"));
-        firstItem.add(new FirstItem(R.drawable.ic_fire24dp, "Line 5", "Line 6"));
+        ArrayList<FirstItem> firstList = new ArrayList<>();
+        firstList.add(new FirstItem(R.drawable.ic_fire24dp, "Line 1", "Line 2"));
+        firstList.add(new FirstItem(R.drawable.ic_fire24dp, "Line 3", "Line 4"));
+        firstList.add(new FirstItem(R.drawable.ic_fire24dp, "Line 5", "Line 6"));
+
+        mRecyclerView = findViewById(R.id.recyclerView);
+        mRecyclerView.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(this);
+        mAdapter = new FutureAdapter(firstList);
+
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
