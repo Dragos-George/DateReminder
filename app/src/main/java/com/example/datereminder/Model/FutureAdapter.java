@@ -52,6 +52,7 @@ public class FutureAdapter extends RecyclerView.Adapter<FutureAdapter.FutureView
         holder.mImageView.setImageResource(currentItem.getImageResource());
         holder.mTextView1.setText(currentItem.getText1());
         holder.mTextView2.setText(currentItem.getText2());
+
     }
 
 
