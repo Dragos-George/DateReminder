@@ -21,10 +21,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,19 +35,6 @@ public class MainActivity extends AppCompatActivity {
                     new HomeFragment()).commit();
         }
 
-        ArrayList<FirstItem> firstList = new ArrayList<>();
-        firstList.add(new FirstItem(R.drawable.ic_fire24dp, "Line 1", "Line 2"));
-        firstList.add(new FirstItem(R.drawable.ic_fire24dp, "Line 3", "Line 4"));
-        firstList.add(new FirstItem(R.drawable.ic_fire24dp, "Line 5", "Line 6"));
-
-        mRecyclerView = findViewById(R.id.recyclerView);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new FutureAdapter(firstList);
-
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
-        mAdapter.notifyDataSetChanged();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =

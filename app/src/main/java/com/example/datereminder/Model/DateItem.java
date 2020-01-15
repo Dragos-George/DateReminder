@@ -7,44 +7,45 @@ public class DateItem {
     private String Description;
     private int ID;
 
+    public DateItem() {
+    }
 
+    public DateItem(long date, String name, String description, int ID) {
+        Date = date;
+        Name = name;
+        Description = description;
+        this.ID = ID;
+    }
 
     public long getDate() {
-        return this.Date;
-    }       //get Date
+        return Date;
+    }
 
-    public void setDate(long Date) {
-        this.Date = Date;
-    }  //set Date
+    public void setDate(long date) {
+        Date = date;
+    }
 
+    public String getName() {
+        return Name;
+    }
 
-
-    public String getName() { return this.Name; }   //get Name
-
-    public void setName(String Name) { this.Name = Name; }  //set Name
+    public void setName(String name) {
+        Name = name;
+    }
 
     public String getDescription() {
-        return this.Description;
-    }       //get Description
+        return Description;
+    }
 
-    public void setDescription(String Description) { this.Description = Description; }  //set Description
+    public void setDescription(String description) {
+        Description = description;
+    }
 
     public int getID() {
-        return this.ID;
-    }       //get ID
+        return ID;
+    }
 
-    public void setID(int ID) { this.ID = ID; }  //set ID
-
-
-
-
-
-
-    public DateItem(long Date, String Name, String Description, int ID){     //Constructor
-        this.Date = Date;
-        this.Name = Name;
-        this.Description = Description;
+    public void setID(int ID) {
         this.ID = ID;
-
     }
 }

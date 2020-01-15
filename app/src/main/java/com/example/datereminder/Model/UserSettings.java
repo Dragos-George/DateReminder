@@ -1,39 +1,40 @@
 package com.example.datereminder.Model;
 
 public class UserSettings {
-
     private String Theme;
     private String NotificationTime;
     private String Accounts;
 
-    public String getTheme() {
-        return this.Theme;
-    }       //get
-
-    public void setTheme(String Theme) {
-        this.Theme = Theme;
-    }  //set
-
-
-
-    public String getNotificationTime() { return this.NotificationTime; }   //get
-
-    public void setNotificationTime(String NotificationTime) { this.NotificationTime = NotificationTime; }  //set
-
-    public String getAccounts() {
-        return this.Accounts;
-    }       //get
-
-    public void setAccounts(String Accounts) {
-        this.Accounts = Accounts;
-    }  //set
-
-
-
-    public UserSettings(String Theme, String NotificationTime, String Accounts){     //Constructor
-        this.Theme = Theme;
-        this.NotificationTime = NotificationTime;
-        this.Accounts = Accounts;
+    public UserSettings() {
     }
 
+    public UserSettings(String theme, String notificationTime, String accounts) {
+        Theme = theme;
+        NotificationTime = notificationTime;
+        Accounts = accounts;
+    }
+
+    public String getTheme() {
+        return Theme;
+    }
+
+    public void setTheme(String theme) {
+        Theme = theme;
+    }
+
+    public String getNotificationTime() {
+        return NotificationTime;
+    }
+
+    public void setNotificationTime(String notificationTime) {
+        NotificationTime = notificationTime;
+    }
+
+    public String getAccounts() {
+        return Accounts;
+    }
+
+    public void setAccounts(String accounts) {
+        Accounts = accounts;
+    }
 }

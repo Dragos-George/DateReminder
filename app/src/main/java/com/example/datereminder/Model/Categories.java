@@ -9,61 +9,63 @@ public class Categories {
     private String RemindTime;
     private int ID;
 
-    public String getName() {
-        return this.Name;
-    }       //get Name
+    public Categories() {
+    }
 
-    public void setName(String Name) {
-        this.Name = Name;
-    }  //set Name
+    public Categories(String name, String description, boolean remind, String color, String remindTime, int ID) {
+        Name = name;
+        Description = description;
+        Remind = remind;
+        Color = color;
+        RemindTime = remindTime;
+        this.ID = ID;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
 
     public String getDescription() {
-        return this.Description;
-    }   //get Description
+        return Description;
+    }
 
-    public void setDescription(String Description) {
-        this.Description = Description;
-    }  //set Description
+    public void setDescription(String description) {
+        Description = description;
+    }
 
-    public boolean getRemind() {
-        return this.Remind;
-    }       //get Remind
+    public boolean isRemind() {
+        return Remind;
+    }
 
-    public void setRemind(boolean Remind) {
-        this.Remind = Remind;
-    }  //set Remind
+    public void setRemind(boolean remind) {
+        Remind = remind;
+    }
 
     public String getColor() {
-        return this.Color;
-    }   //get Color
+        return Color;
+    }
 
-    public void setColor(String Color) {
-        this.Color = Color;
-    }  //set Color
+    public void setColor(String color) {
+        Color = color;
+    }
 
     public String getRemindTime() {
-        return this.RemindTime;
-    }   //get RemindTime
+        return RemindTime;
+    }
 
-    public void setRemindTime(String RemindTime) {
-        this.RemindTime = RemindTime;
-    }  //set RemindTime
+    public void setRemindTime(String remindTime) {
+        RemindTime = remindTime;
+    }
 
     public int getID() {
-        return this.ID;
-    }   //get ID
+        return ID;
+    }
 
     public void setID(int ID) {
-        this.ID = ID;
-    }  //set ID
-
-
-    public Categories(String Name, String Description, boolean Remind, String Color, String RemindTime, int ID) {     //Constructor
-        this.Name = Name;
-        this.Description = Description;
-        this.Remind = Remind;
-        this.Color = Color;
-        this.RemindTime = RemindTime;
         this.ID = ID;
     }
 }

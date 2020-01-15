@@ -18,31 +18,15 @@ public class FutureAdapter extends RecyclerView.Adapter<FutureAdapter.FutureView
 
     private ArrayList<FirstItem> mFirstList;
 
-    public static class FutureViewHolder extends RecyclerView.ViewHolder {
-
-        public ImageView mImageView;
-        public TextView mTextView1;
-        public TextView mTextView2;
-
-
-        public FutureViewHolder(@NonNull View itemView) {
-            super(itemView);
-            mImageView = itemView.findViewById(R.id.imageView);
-            mTextView1 = itemView.findViewById(R.id.textView);
-            mTextView2 = itemView.findViewById(R.id.textView2);
-        }
-    }
-
-    public FutureAdapter(ArrayList<FirstItem> firstList){
+    public FutureAdapter(ArrayList<FirstItem> firstList) {
         mFirstList = firstList;
     }
+
     @NonNull
     @Override
     public FutureViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.first_item, parent, false);
-        FutureViewHolder fvh = new FutureViewHolder(v);
-        return fvh;
+        return new FutureViewHolder(v);
     }
 
     @Override
@@ -52,12 +36,23 @@ public class FutureAdapter extends RecyclerView.Adapter<FutureAdapter.FutureView
         holder.mImageView.setImageResource(currentItem.getImageResource());
         holder.mTextView1.setText(currentItem.getText1());
         holder.mTextView2.setText(currentItem.getText2());
-
     }
-
 
     @Override
     public int getItemCount() {
         return mFirstList.size();
+    }
+
+    public static class FutureViewHolder extends RecyclerView.ViewHolder {
+        private ImageView mImageView;
+        private TextView mTextView1;
+        private TextView mTextView2;
+
+        private FutureViewHolder(@NonNull View itemView) {
+            super(itemView);
+            mImageView = itemView.findViewById(R.id.imageView);
+            mTextView1 = itemView.findViewById(R.id.textView);
+            mTextView2 = itemView.findViewById(R.id.textView2);
+        }
     }
 }
