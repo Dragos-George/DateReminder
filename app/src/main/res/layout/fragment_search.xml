@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.SearchFragment"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/colorPrimaryDark"
+    tools:context=".Fragments.SearchFragment">
 
     <Toolbar
         android:id="@+id/fragment_search_toolbar"
@@ -20,8 +20,9 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/search_bar"
                 android:layout_margin="8dp"
+                android:imeOptions="flagNoPersonalizedLearning|actionSearch"
+                android:background="@drawable/search_bar"
                 android:backgroundTint="@color/colorUnselected"
                 android:drawableStart="@drawable/ic_search"
                 android:paddingStart="6dp"
