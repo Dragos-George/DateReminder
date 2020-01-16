@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.SearchFragment">
+    tools:context=".Fragments.SearchFragment"
+    android:background="@color/colorPrimaryDark">
 
     <Toolbar
         android:id="@+id/fragment_search_toolbar"
@@ -21,6 +22,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/search_bar"
                 android:layout_margin="8dp"
+                android:backgroundTint="@color/colorUnselected"
                 android:drawableStart="@drawable/ic_search"
                 android:paddingStart="6dp"
                 android:paddingEnd="6dp" />
