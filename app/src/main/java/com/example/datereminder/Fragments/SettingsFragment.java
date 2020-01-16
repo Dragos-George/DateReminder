@@ -1,4 +1,4 @@
-package com.example.datereminder.MainMenuFragments;
+package com.example.datereminder.Fragments;
 
 
 import android.os.Bundle;

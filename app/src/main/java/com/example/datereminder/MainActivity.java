@@ -1,25 +1,20 @@
 package com.example.datereminder;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
 
-import com.example.datereminder.MainMenuFragments.CategoriesFragment;
-import com.example.datereminder.MainMenuFragments.HomeFragment;
-import com.example.datereminder.MainMenuFragments.SettingsFragment;
-import com.example.datereminder.Model.FutureAdapter;
+import com.example.datereminder.Fragments.CategoriesFragment;
+import com.example.datereminder.Fragments.HomeFragment;
+import com.example.datereminder.Fragments.SearchFragment;
+import com.example.datereminder.Fragments.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
                     switch (item.getItemId()) {
                         case R.id.navigation_home:
                             selectedFragment = new HomeFragment();
+                            break;
+                        case R.id.navigation_search:
+                            selectedFragment = new SearchFragment();
                             break;
                         case R.id.navigation_categories:
                             selectedFragment = new CategoriesFragment();

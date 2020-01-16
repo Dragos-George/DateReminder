@@ -1,4 +1,4 @@
-package com.example.datereminder.MainMenuFragments;
+package com.example.datereminder.Fragments;
 
 
 import android.os.Bundle;
@@ -17,7 +17,6 @@ import com.example.datereminder.Model.FutureAdapter;
 import com.example.datereminder.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CategoriesFragment extends Fragment {
     private RecyclerView recyclerView;
