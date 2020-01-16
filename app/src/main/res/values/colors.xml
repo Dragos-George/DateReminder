@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#F3F4F6</color>
     <color name="colorAccent">@color/teal</color>
     <color name="colorUnselected">#aaaaaa</color>
+    <color name="colorText">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="yellow">#FFFF00</color>
     <color name="fuchsia">#FF00FF</color>

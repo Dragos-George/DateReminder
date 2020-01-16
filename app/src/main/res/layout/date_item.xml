@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:maxHeight="300dp">
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/date_item_tag"
+        android:layout_width="20dp"
+        android:layout_height="10dp"
+        android:layout_alignTop="@+id/date_item_title"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@id/date_item_title"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/circle" />
+
+    <TextView
+        android:id="@+id/date_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="6dp"
+        android:layout_toEndOf="@id/date_item_tag"
+        android:text="asfsdgdfs"
+        android:textColor="@color/colorText"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/date_item_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/date_item_title"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@id/date_item_tag"
+        android:text="My very cool description blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"
+        android:textColor="@color/colorUnselected"
+        android:textSize="12sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorText"
+        android:layout_alignBottom="@id/date_item_description" />
+
+</RelativeLayout>
