@@ -6,6 +6,7 @@ public class DateItem {
     private String Name;
     private String Description;
     private int ID;
+    private int Color;
 
     public DateItem() {
     }
@@ -47,5 +48,13 @@ public class DateItem {
 
     public void setID(int ID) {
         this.ID = ID;
+    }
+
+    public int getColor() {
+        return Color;
+    }
+
+    public void setColor(int color) {
+        Color = color;
     }
 }
