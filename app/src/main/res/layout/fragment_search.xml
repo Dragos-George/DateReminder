@@ -21,10 +21,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
-                android:imeOptions="flagNoPersonalizedLearning|actionSearch"
                 android:background="@drawable/search_bar"
                 android:backgroundTint="@color/colorUnselected"
                 android:drawableStart="@drawable/ic_search"
+                android:imeOptions="flagNoPersonalizedLearning|actionSearch"
+                android:inputType="textCapSentences|textNoSuggestions|textVisiblePassword"
                 android:paddingStart="6dp"
                 android:paddingEnd="6dp" />
 

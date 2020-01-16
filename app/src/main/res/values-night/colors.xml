@@ -4,7 +4,6 @@
     <color name="colorPrimaryDark">#1F1F1F</color>
     <color name="colorAccent">@color/teal</color>
     <color name="colorUnselected">#aaaaaa</color>
-    <color name="invertedColor">?android:attr/textColorPrimary</color>
     <color name="white">#FFFFFF</color>
     <color name="yellow">#FFFF00</color>
     <color name="fuchsia">#FF00FF</color>

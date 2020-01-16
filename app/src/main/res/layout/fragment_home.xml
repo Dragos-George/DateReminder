@@ -26,7 +26,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
-                android:background="@color/colorPrimary"
+                android:background="@android:color/transparent"
+                android:tint="@color/colorUnselected"
                 android:src="@drawable/ic_add"/>
 
         </RelativeLayout>
