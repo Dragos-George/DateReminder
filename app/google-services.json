@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "413253116694",
+    "firebase_url": "https://datereminder-63fcc.firebaseio.com",
+    "project_id": "datereminder-63fcc",
+    "storage_bucket": "datereminder-63fcc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413253116694:android:dc2e7a0160ed4e6bac6637",
+        "android_client_info": {
+          "package_name": "com.example.datereminder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "413253116694-hkfm2i5hj9i86tcbauoskrkhvn5pa9c7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTIMcadJyITV6X--nJ0p-LxYpyiWxh4as"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "413253116694-hkfm2i5hj9i86tcbauoskrkhvn5pa9c7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

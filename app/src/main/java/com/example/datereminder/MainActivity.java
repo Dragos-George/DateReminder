@@ -10,21 +10,27 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import com.example.datereminder.MainMenuFragments.CategoriesFragment;
 import com.example.datereminder.MainMenuFragments.HomeFragment;
 import com.example.datereminder.MainMenuFragments.SettingsFragment;
 import com.example.datereminder.Model.FutureAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button setButton;
+    // private
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         //dark mode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
 
