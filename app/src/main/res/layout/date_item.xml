@@ -40,10 +40,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/date_item_title"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="12dp"
         android:layout_toEndOf="@id/date_item_tag"
         android:text="My very cool description blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"
-        android:textColor="@color/colorUnselected"
+        android:textColor="@color/colorText"
         android:ellipsize="end"
         android:maxLines="3"
         android:textSize="12sp" />

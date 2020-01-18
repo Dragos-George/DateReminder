@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/maroon">
+    android:background="@color/colorPrimaryDark">
 
     <Toolbar
         android:id="@+id/fragment_history_toolbar"
@@ -23,20 +23,22 @@
 
     </Toolbar>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="571dp"
-        android:layout_below="@id/fragment_history_toolbar"
-        android:background="@color/gray"
-        android:padding="4dp"
-        android:scrollbars="vertical" />
     <Button
+        android:id="@+id/sendButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/recyclerView"
-        android:id="@+id/sendButton"
-        android:text="Send Data"/>
+        android:layout_marginTop="16dp"
+        android:text="@string/send_data" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_below="@id/fragment_history_toolbar"
+        android:layout_height="600dp"
+        android:padding="4dp"
+        android:scrollbars="vertical" />
+
 
 
 </RelativeLayout>

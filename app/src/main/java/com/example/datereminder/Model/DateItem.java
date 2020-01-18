@@ -11,11 +11,17 @@ public class DateItem {
     public DateItem() {
     }
 
-    public DateItem(long date, String name, String description, int ID) {
+    public DateItem(long date, String name, String description, int ID, int color) {
         Date = date;
         Name = name;
         Description = description;
         this.ID = ID;
+        Color = color;
+    }
+    public DateItem (int x, String y, String z ){
+        Color = x;
+        Name = y;
+        Description = z;
     }
 
     public long getDate() {
