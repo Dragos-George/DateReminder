@@ -22,11 +22,22 @@ public class FutureAdapter extends RecyclerView.Adapter<FutureAdapter.FutureView
         mFirstList = firstList;
     }
 
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
+
+
     @NonNull
     @Override
     public FutureViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.first_item, parent, false);
-        return new FutureViewHolder(v);
+        return new FutureViewHolder(v, mListener);
     }
 
     @Override
@@ -48,11 +59,24 @@ public class FutureAdapter extends RecyclerView.Adapter<FutureAdapter.FutureView
         private TextView mTextView1;
         private TextView mTextView2;
 
-        private FutureViewHolder(@NonNull View itemView) {
+        private FutureViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.imageView);
             mTextView1 = itemView.findViewById(R.id.textView);
             mTextView2 = itemView.findViewById(R.id.textView2);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onItemClick(position);
+                        }
+                    }
+                }
+
+            });
         }
     }
 }
