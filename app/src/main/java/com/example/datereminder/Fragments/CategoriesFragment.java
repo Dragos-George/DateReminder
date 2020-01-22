@@ -62,6 +62,11 @@ public class CategoriesFragment extends Fragment {
             public void onItemClick(int position) {
                 changeItem(position, "Clicked");
             }
+
+            @Override
+            public void onDeleteClick(int position) {
+                removeItem(position);
+            }
         });
 
         //Click Insert Button

@@ -26,6 +26,8 @@ public class FutureAdapter extends RecyclerView.Adapter<FutureAdapter.FutureView
 
     public interface OnItemClickListener {
         void onItemClick(int position);
+        void onDeleteClick(int position);
+
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -58,17 +60,20 @@ public class FutureAdapter extends RecyclerView.Adapter<FutureAdapter.FutureView
         private ImageView mImageView;
         private TextView mTextView1;
         private TextView mTextView2;
+        private ImageView mDeleteImage;
 
         private FutureViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.imageView);
             mTextView1 = itemView.findViewById(R.id.textView);
             mTextView2 = itemView.findViewById(R.id.textView2);
+            mDeleteImage = itemView.findViewById(R.id.image_delete);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (listener != null) {
+
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
                             listener.onItemClick(position);
@@ -76,6 +81,19 @@ public class FutureAdapter extends RecyclerView.Adapter<FutureAdapter.FutureView
                     }
                 }
 
+            });
+
+            mDeleteImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onDeleteClick(position);
+                        }
+                    }
+                }
             });
         }
     }
