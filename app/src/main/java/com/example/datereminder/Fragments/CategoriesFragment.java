@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,6 +24,11 @@ public class CategoriesFragment extends Fragment {
     private RecyclerView recyclerView;
     private FutureAdapter futureAdapter;
     private  ArrayList<FirstItem> firstItemList = new ArrayList<>();
+
+    private Button buttonInsert;
+    private Button buttonRemove;
+    private EditText editTextInsert;
+    private EditText editTextRemove;
 
     @Nullable
     @Override
@@ -43,6 +50,40 @@ public class CategoriesFragment extends Fragment {
         firstItemList.add(new FirstItem(R.drawable.ic_fire24dp, "Line 5", "Line 6"));
 
         futureAdapter.notifyItemRangeInserted(0, firstItemList.size());
+
+        buttonInsert = view.findViewById(R.id.button_add);
+        buttonRemove = view.findViewById(R.id.button_remove);
+        editTextInsert = view.findViewById(R.id.edittext_insert);
+        editTextRemove = view.findViewById(R.id.edittext_remove);
+
+        buttonInsert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = Integer.parseInt(editTextInsert.getText().toString());
+                insertItem(position);
+            }
+        });
+
+        buttonRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = Integer.parseInt(editTextRemove.getText().toString());
+                removeItem(position);
+            }
+        });
+
         return view;
+
+    }
+
+
+    public void insertItem(int position){
+        firstItemList.add(position, new FirstItem(R.drawable.ic_add, "New Item At Position" + position, "This is Line 2"));
+        futureAdapter.notifyItemInserted(position);
+    }
+
+    public void removeItem(int position){
+        firstItemList.remove(position);
+        futureAdapter.notifyItemRemoved(position);
     }
 }
