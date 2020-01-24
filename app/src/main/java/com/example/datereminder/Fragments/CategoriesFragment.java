@@ -23,11 +23,6 @@ public class CategoriesFragment extends Fragment {
     private FutureAdapter futureAdapter;
     private  ArrayList<FirstItem> firstItemList = new ArrayList<>();
 
-    private Button buttonInsert;
-    private Button buttonRemove;
-    private EditText editTextInsert;
-    private EditText editTextRemove;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -49,13 +44,6 @@ public class CategoriesFragment extends Fragment {
         futureAdapter.notifyItemRangeInserted(0, firstItemList.size());
 
 
-        //Add Button and Delete Button
-        buttonInsert = view.findViewById(R.id.button_add);
-        buttonRemove = view.findViewById(R.id.button_remove);
-        editTextInsert = view.findViewById(R.id.edittext_insert);
-        editTextRemove = view.findViewById(R.id.edittext_remove);
-
-
         //Click change
         futureAdapter.setOnItemClickListener(new FutureAdapter.OnItemClickListener() {
             @Override
@@ -65,24 +53,6 @@ public class CategoriesFragment extends Fragment {
 
             @Override
             public void onDeleteClick(int position) {
-                removeItem(position);
-            }
-        });
-
-        //Click Insert Button
-        buttonInsert.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = Integer.parseInt(editTextInsert.getText().toString());
-                insertItem(position);
-            }
-        });
-
-        //Click Remove Button
-        buttonRemove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = Integer.parseInt(editTextRemove.getText().toString());
                 removeItem(position);
             }
         });
