@@ -23,10 +23,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="6dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toStartOf="@id/date_item_more"
         android:layout_toEndOf="@id/date_item_tag"
         android:ellipsize="end"
         android:lines="1"
@@ -42,8 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/date_item_title"
         android:layout_alignStart="@id/date_item_title"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="12dp"
+        android:layout_toStartOf="@id/date_item_more"
+        android:layout_marginEnd="8dp"
         android:ellipsize="end"
         android:maxLines="3"
         android:paddingBottom="6dp"
@@ -51,13 +51,28 @@
         android:textColor="@color/colorText"
         android:textSize="16sp" />
 
+    <ImageButton
+        android:id="@+id/date_item_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/transparent"
+        android:tint="@color/colorText"
+        android:paddingTop="6dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        android:src="@drawable/ic_more" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_alignBottom="@id/date_item_description"
-        android:layout_marginStart="8dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="26dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="26dp"
         android:background="@color/colorText" />
 
 </RelativeLayout>
