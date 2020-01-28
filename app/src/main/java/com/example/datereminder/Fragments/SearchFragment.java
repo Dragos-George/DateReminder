@@ -11,12 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.datereminder.Model.DatabaseHelper;
 import com.example.datereminder.Model.DateItem;
 import com.example.datereminder.Model.DateItemAdapter;
 import com.example.datereminder.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,7 +46,11 @@ public class SearchFragment extends Fragment {
         recyclerView.setAdapter(recyclerViewAdapter);
 
         //populate recyclerview
-        populateRecyclerView(100);
+
+        DatabaseHelper db = new DatabaseHelper(getActivity());
+        db.createDatabase();
+        dateItemList= db.readSearches();
+        //populateRecyclerView(100);
         //populateRecyclerView(20);
 
         return view;
@@ -53,8 +59,14 @@ public class SearchFragment extends Fragment {
     private void populateRecyclerView(int size) {
         int oldSize = recyclerViewAdapter.getItemCount();
         for (int i = 1; i <= size; i++) {
-            dateItemList.add(new DateItem(R.drawable.circle, "Title " + i, "Description " + i));
+            dateItemList.add(new DateItem("Title " + i, "Description " + i));
+            //dateItemList.add(new DateItem())
         }
         recyclerViewAdapter.notifyItemRangeInserted(oldSize, oldSize + size);
+    }
+
+    public void addToItems(ArrayList<DateItem> myNewList){
+        dateItemList= myNewList;
+        Objects.requireNonNull(recyclerView.getAdapter()).notifyDataSetChanged();
     }
 }

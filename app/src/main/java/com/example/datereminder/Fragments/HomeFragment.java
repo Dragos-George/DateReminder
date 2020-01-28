@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.CalendarView;
 
 import com.example.datereminder.FirstItem;
+import com.example.datereminder.MainActivity;
+import com.example.datereminder.Model.DatabaseHelper;
 import com.example.datereminder.Model.DateItem;
 import com.example.datereminder.Model.DateItemAdapter;
 import com.example.datereminder.Model.FutureAdapter;
@@ -29,6 +31,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private DateItemAdapter dateItemAdapter;
     private ArrayList<DateItem> dateItemList = new ArrayList<>();
+    private static DatabaseHelper db;
 
     @Nullable
     @Override
@@ -47,22 +50,27 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(dateItemAdapter);
 
+        db = new DatabaseHelper(getActivity());
+        db.createDatabase();
+        dateItemList= db.readSearches();
+        dateItemList= db.readSearches();
+        dateItemAdapter.notifyDataSetChanged();
 
-        dateItemList.add(new DateItem(R.drawable.circle, "Line 1", "Line 2"));
-        dateItemList.add(new DateItem(R.drawable.circle, "Line 3", "Line 4"));
-        dateItemList.add(new DateItem(R.drawable.circle, "Line 5", "Line 6"));
-        dateItemList.add(new DateItem(R.drawable.circle, "Line 1", "Line 2"));
-        dateItemList.add(new DateItem(R.drawable.circle, "Line 3", "Line 4"));
-        dateItemList.add(new DateItem(R.drawable.circle, "Line 5", "Line 6"));
-        dateItemList.add(new DateItem(R.drawable.circle, "Line 3", "Line 4"));
-        dateItemList.add(new DateItem(R.drawable.circle, "Line 1", "Line 2"));
-        dateItemList.add(new DateItem(R.drawable.circle, "Line 3", "Line 4"));
-        dateItemList.add(new DateItem(R.drawable.circle, "Line 5", "Line 6"));
-        dateItemList.add(new DateItem(R.drawable.circle, "Line 1", "Line 2"));
-        dateItemList.add(new DateItem(R.drawable.circle, "Line 3", "Line 4"));
-        dateItemList.add(new DateItem(R.drawable.circle, "Line 5", "Line 6"));
-        dateItemList.add(new DateItem(R.drawable.circle, "Line 3", "Line 4"));
-        dateItemList.add(new DateItem(R.drawable.circle, "Line 5", "Line 6"));
+//        dateItemList.add(new DateItem(R.drawable.circle, "Line 1", "Line 2"));
+//        dateItemList.add(new DateItem(R.drawable.circle, "Line 3", "Line 4"));
+//        dateItemList.add(new DateItem(R.drawable.circle, "Line 5", "Line 6"));
+//        dateItemList.add(new DateItem(R.drawable.circle, "Line 1", "Line 2"));
+//        dateItemList.add(new DateItem(R.drawable.circle, "Line 3", "Line 4"));
+//        dateItemList.add(new DateItem(R.drawable.circle, "Line 5", "Line 6"));
+//        dateItemList.add(new DateItem(R.drawable.circle, "Line 3", "Line 4"));
+//        dateItemList.add(new DateItem(R.drawable.circle, "Line 1", "Line 2"));
+//        dateItemList.add(new DateItem(R.drawable.circle, "Line 3", "Line 4"));
+//        dateItemList.add(new DateItem(R.drawable.circle, "Line 5", "Line 6"));
+//        dateItemList.add(new DateItem(R.drawable.circle, "Line 1", "Line 2"));
+//        dateItemList.add(new DateItem(R.drawable.circle, "Line 3", "Line 4"));
+//        dateItemList.add(new DateItem(R.drawable.circle, "Line 5", "Line 6"));
+//        dateItemList.add(new DateItem(R.drawable.circle, "Line 3", "Line 4"));
+//        dateItemList.add(new DateItem(R.drawable.circle, "Line 5", "Line 6"));
 
         return view;
 

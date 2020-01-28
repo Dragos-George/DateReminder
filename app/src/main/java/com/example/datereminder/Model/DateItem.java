@@ -6,20 +6,17 @@ public class DateItem {
     private String Name;
     private String Description;
     private int ID;
-    private int Color;
 
     public DateItem() {
     }
 
-    public DateItem(long date, String name, String description, int ID, int color) {
+    public DateItem(int id, String name, String description, long date, int ID) {
         Date = date;
         Name = name;
         Description = description;
         this.ID = ID;
-        Color = color;
     }
-    public DateItem (int x, String y, String z ){
-        Color = x;
+    public DateItem (String y, String z ){
         Name = y;
         Description = z;
     }
@@ -54,13 +51,5 @@ public class DateItem {
 
     public void setID(int ID) {
         this.ID = ID;
-    }
-
-    public int getColor() {
-        return Color;
-    }
-
-    public void setColor(int color) {
-        Color = color;
     }
 }

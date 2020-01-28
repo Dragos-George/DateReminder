@@ -31,7 +31,7 @@ public class DateItemAdapter extends RecyclerView.Adapter<DateItemAdapter.DateIt
     public void onBindViewHolder(@NonNull DateItemViewHolder holder, int position) {
         DateItem currentItem = mDateItem.get(position);
 
-        holder.mItemTag.setImageResource(currentItem.getColor());
+        //holder.mItemTag.setImageResource(currentItem.getColor());
         holder.mItemTitle.setText(currentItem.getName());
         holder.mItemDescription.setText(currentItem.getDescription());
     }
