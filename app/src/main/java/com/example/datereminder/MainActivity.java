@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
 
@@ -14,6 +15,7 @@ import com.example.datereminder.Fragments.HomeFragment;
 import com.example.datereminder.Fragments.SearchFragment;
 import com.example.datereminder.Fragments.SettingsFragment;
 import com.example.datereminder.Model.Categories;
+import com.example.datereminder.Model.DatabaseHelper;
 import com.example.datereminder.Model.DateItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.FirebaseDatabase;
@@ -38,6 +40,20 @@ public class MainActivity extends AppCompatActivity {
         searchFragment = new SearchFragment();
         categoriesFragment = new CategoriesFragment();
         settingsFragment=new SettingsFragment();
+
+        //mandatory
+        DatabaseHelper db = new DatabaseHelper(this);
+        db.createDatabase();
+        //mandatory
+
+        printListDebugging(db.readSearches());
+
+
+
+
+
+
+
 
         //dark mode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
@@ -76,7 +92,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
 
-    public void sendList(ArrayList<DateItem> results) {
-        searchFragment.addToItems(results);
+    public void printListDebugging(ArrayList<DateItem> results) {
+        for (DateItem esad: results) {
+            Log.e("sadfsdfg", esad.getName() + esad.getDescription() + esad.getDate());
+        }
     }
 }

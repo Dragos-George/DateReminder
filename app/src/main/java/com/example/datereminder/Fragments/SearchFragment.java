@@ -47,9 +47,9 @@ public class SearchFragment extends Fragment {
 
         //populate recyclerview
 
-        DatabaseHelper db = new DatabaseHelper(getActivity());
-        db.createDatabase();
-        dateItemList= db.readSearches();
+//        DatabaseHelper db = new DatabaseHelper(getActivity());
+//        db.createDatabase();
+//        dateItemList= db.readSearches();
         //populateRecyclerView(100);
         //populateRecyclerView(20);
 

@@ -97,8 +97,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (results.size() == 0)
             return null;
         else{
-            MainActivity m = (MainActivity) mContext;
-            m.sendList(results);
             return results;
         }
     }

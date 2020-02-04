@@ -52,9 +52,9 @@ public class HomeFragment extends Fragment {
 
         db = new DatabaseHelper(getActivity());
         db.createDatabase();
-        dateItemList= db.readSearches();
-        dateItemList= db.readSearches();
-        dateItemAdapter.notifyDataSetChanged();
+//        dateItemList= db.readSearches();
+//        dateItemList= db.readSearches();
+//        dateItemAdapter.notifyDataSetChanged();
 
 //        dateItemList.add(new DateItem(R.drawable.circle, "Line 1", "Line 2"));
 //        dateItemList.add(new DateItem(R.drawable.circle, "Line 3", "Line 4"));
