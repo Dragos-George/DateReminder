@@ -96,8 +96,59 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         if (results.size() == 0)
             return null;
-        else{
+        else {
             return results;
         }
+    }
+
+    public ArrayList<Categories> readCategoriesTable() {
+
+        // Select All Query
+        String selectQuery = "SELECT * FROM " + CATEGORIES_TABLE + ";";
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        return CategoriesCursorParser(cursor);
+
+
+    }
+
+    public ArrayList<Categories> SearchCategoriesTable(String value) {
+
+        // Search Query
+
+        String searchQuery = "SELECT * FROM " + CATEGORIES_TABLE + " WHERE " + CATEGORIES_TABLE_2 + " LIKE " + "'%" + value + "%'" + ";";
+        Cursor cursor = db.rawQuery(searchQuery, null);
+        return CategoriesCursorParser(cursor);
+    }
+
+    private ArrayList<Categories> CategoriesCursorParser(Cursor cursor) {
+
+        ArrayList<Categories> results = new ArrayList<>();
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                try {
+                    int DATA1 = cursor.getInt(cursor.getColumnIndex(CATEGORIES_TABLE_1));
+                    String DATA2 = cursor.getString(cursor.getColumnIndex(CATEGORIES_TABLE_2));
+                    String DATA3 = cursor.getString(cursor.getColumnIndex(CATEGORIES_TABLE_3));
+                    int DATA4 = cursor.getInt(cursor.getColumnIndex(CATEGORIES_TABLE_4));
+                    int DATA5 = cursor.getInt(cursor.getColumnIndex(CATEGORIES_TABLE_5));
+                    String DATA6 = cursor.getString(cursor.getColumnIndex(CATEGORIES_TABLE_6));
+
+
+                    results.add(new Categories(DATA1, DATA2, DATA3, DATA4, DATA5, DATA6));
+                } catch (Exception e) {
+                    Log.e("Error", "Error");
+                }
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        if (results.size() == 0)
+            return null;
+        else {
+            return results;
+        }
+
     }
 }

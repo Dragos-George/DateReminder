@@ -46,7 +46,11 @@ public class MainActivity extends AppCompatActivity {
         db.createDatabase();
         //mandatory
 
-        printListDebugging(db.readSearches());
+//        printListDebuggingDateItem(db.readSearches());
+        printListDebuggingCategories(db.readCategoriesTable());
+        printListDebuggingCategories(db.SearchCategoriesTable("ry3"));
+
+
 
 
 
@@ -92,9 +96,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
 
-    public void printListDebugging(ArrayList<DateItem> results) {
+    public void printListDebuggingDateItem(ArrayList<DateItem> results) {
         for (DateItem esad: results) {
-            Log.e("sadfsdfg", esad.getName() + esad.getDescription() + esad.getDate());
+            Log.e("sadfsdfg ", esad.getName() + " " + esad.getDescription() + " " + esad.getDate());
+        }
+    }
+
+    public void printListDebuggingCategories(ArrayList<Categories> results) {
+        for (Categories esad: results) {
+            Log.e("sadfsdfg ", esad.getName() + " " + esad.getDescription() + " " + esad.getRemindTime());
         }
     }
 }

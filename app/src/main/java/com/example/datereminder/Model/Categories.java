@@ -2,22 +2,32 @@ package com.example.datereminder.Model;
 
 public class Categories {
 
+    private int ID;
     private String Name;
     private String Description;
-    private boolean Remind;
+    private int RemindTime;             //it should be string
+    private int NotificationDate;
     private String Color;
-    private String RemindTime;
-    private int ID;
+
+
 
     public Categories() {
     }
 
-    public Categories(String name, String description, boolean remind, String color, String remindTime, int ID) {
+    public Categories(int ID, String name, String description, int remindTime, int notificationDate, String color) {
+        this.ID = ID;
         Name = name;
         Description = description;
-        Remind = remind;
-        Color = color;
         RemindTime = remindTime;
+        NotificationDate = notificationDate;
+        Color = color;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
         this.ID = ID;
     }
 
@@ -37,12 +47,20 @@ public class Categories {
         Description = description;
     }
 
-    public boolean isRemind() {
-        return Remind;
+    public int getRemindTime() {
+        return RemindTime;
     }
 
-    public void setRemind(boolean remind) {
-        Remind = remind;
+    public void setRemindTime(int remindTime) {
+        RemindTime = remindTime;
+    }
+
+    public int getNotificationDate() {
+        return NotificationDate;
+    }
+
+    public void setNotificationDate(int notificationDate) {
+        NotificationDate = notificationDate;
     }
 
     public String getColor() {
@@ -51,21 +69,5 @@ public class Categories {
 
     public void setColor(String color) {
         Color = color;
-    }
-
-    public String getRemindTime() {
-        return RemindTime;
-    }
-
-    public void setRemindTime(String remindTime) {
-        RemindTime = remindTime;
-    }
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
     }
 }
