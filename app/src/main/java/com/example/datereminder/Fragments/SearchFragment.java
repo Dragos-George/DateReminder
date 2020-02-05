@@ -31,7 +31,8 @@ public class SearchFragment extends Fragment {
     private DateItemAdapter recyclerViewAdapter;
     private ArrayList<DateItem> dateItemList = new ArrayList<DateItem>();
     private EditText searchBar;
-    DatabaseHelper db;
+    private DatabaseHelper db;
+
     public SearchFragment() {
         // Required empty public constructor
     }
@@ -67,35 +68,29 @@ public class SearchFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
                 dateItemList.clear();
-               dateItemList = db.SearchDateItemTable(searchBar.getText().toString());
-               if(!dateItemList.isEmpty())
-               recyclerViewAdapter.notifyDataSetChanged();
-
+                if (s.toString().length()>2){
+                    ArrayList<DateItem> searchResult = db.SearchDateItemTable(searchBar.getText().toString());
+                    if (searchResult != null) {
+                        dateItemList.addAll(searchResult);
+                    }
+                }
+                recyclerViewAdapter.notifyDataSetChanged();
             }
         });
-
-        //populate recyclerview
-
-//        DatabaseHelper db = new DatabaseHelper(getActivity());
-//        db.createDatabase();
-//        dateItemList= db.readDateItem();
-        //populateRecyclerView(100);
-        //populateRecyclerView(20);
 
         return view;
     }
 
-    private void populateRecyclerView(int size) {
-        int oldSize = recyclerViewAdapter.getItemCount();
-        for (int i = 1; i <= size; i++) {
-            dateItemList.add(new DateItem("Title " + i, "Description " + i));
-            //dateItemList.add(new DateItem())
-        }
-        recyclerViewAdapter.notifyItemRangeInserted(oldSize, oldSize + size);
-    }
-
-    public void addToItems(ArrayList<DateItem> myNewList){
-        dateItemList= myNewList;
-        Objects.requireNonNull(recyclerView.getAdapter()).notifyDataSetChanged();
-    }
+//    private void populateRecyclerView(int size) {
+//        int oldSize = recyclerViewAdapter.getItemCount();
+//        for (int i = 1; i <= size; i++) {
+//            dateItemList.add(new DateItem("Title " + i, "Description " + i));
+//        }
+//        recyclerViewAdapter.notifyItemRangeInserted(oldSize, oldSize + size);
+//    }
+//
+//    public void addToItems(ArrayList<DateItem> myNewList) {
+//        dateItemList = myNewList;
+//        Objects.requireNonNull(recyclerView.getAdapter()).notifyDataSetChanged();
+//    }
 }
