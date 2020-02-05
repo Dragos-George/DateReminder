@@ -36,26 +36,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        homeFragment=new HomeFragment();
+        homeFragment = new HomeFragment();
         searchFragment = new SearchFragment();
         categoriesFragment = new CategoriesFragment();
-        settingsFragment=new SettingsFragment();
+        settingsFragment = new SettingsFragment();
 
         //mandatory
         DatabaseHelper db = new DatabaseHelper(this);
         db.createDatabase();
         //mandatory
 
-//        printListDebuggingDateItem(db.readSearches());
-        printListDebuggingCategories(db.readCategoriesTable());
-        printListDebuggingCategories(db.SearchCategoriesTable("ry3"));
+//        printListDebuggingDateItem(db.readDateItem());
+        //printListDebuggingCategories(db.readCategoriesTable());
+       // printListDebuggingCategories(db.SearchCategoriesTable("ry3"));
 
-
-
-
-
-
-
+        printListDebuggingCategories(db.ReturnCategoryByID("4232"));
 
 
 
@@ -70,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -97,14 +93,17 @@ public class MainActivity extends AppCompatActivity {
             };
 
     public void printListDebuggingDateItem(ArrayList<DateItem> results) {
-        for (DateItem esad: results) {
+        for (DateItem esad : results) {
             Log.e("sadfsdfg ", esad.getName() + " " + esad.getDescription() + " " + esad.getDate());
         }
     }
 
     public void printListDebuggingCategories(ArrayList<Categories> results) {
-        for (Categories esad: results) {
-            Log.e("sadfsdfg ", esad.getName() + " " + esad.getDescription() + " " + esad.getRemindTime());
+        for (Categories esad : results) {
+            Log.e("sadfsdfg ", esad.getName() + " " + esad.getDescription() + " " + esad.getRemindTime() + " " + esad.getID());
         }
     }
+
+
+
 }

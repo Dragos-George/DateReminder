@@ -49,7 +49,7 @@ public class SearchFragment extends Fragment {
 
 //        DatabaseHelper db = new DatabaseHelper(getActivity());
 //        db.createDatabase();
-//        dateItemList= db.readSearches();
+//        dateItemList= db.readDateItem();
         //populateRecyclerView(100);
         //populateRecyclerView(20);
 

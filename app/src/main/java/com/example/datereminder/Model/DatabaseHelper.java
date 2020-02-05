@@ -13,6 +13,7 @@ import com.example.datereminder.Fragments.SearchFragment;
 import com.example.datereminder.MainActivity;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String CATEGORIES_TABLE = "Categories";
@@ -68,7 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db = SQLiteDatabase.openDatabase(mContext.getApplicationContext().getFilesDir().getAbsolutePath() + "/DATABASE.db", null, SQLiteDatabase.OPEN_READWRITE);
     }
 
-    public ArrayList<DateItem> readSearches() {
+    public ArrayList<DateItem> readDateItem() {
         ArrayList<DateItem> results = new ArrayList<>();
         //SQLiteDatabase db = this.getReadableDatabase();
 
@@ -101,6 +102,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public ArrayList<DateItem> SearchDateItemTable(String value) {
+
+        // Search Query
+
+        String searchQuery = "SELECT * FROM " + DATEITEM_TABLE + " WHERE " + DATEITEM_TABLE_2 + " LIKE " + "'%" + value + "%' OR " + DATEITEM_TABLE_3 + " LIKE " + "'%" + value + "%';";
+        Cursor cursor = db.rawQuery(searchQuery, null);
+        return DateItemCursorParser(cursor);
+    }
+
+    public ArrayList<DateItem> ReturnDateItemByID(String value) {
+
+        // Search Query
+
+        String searchQuery = "SELECT * FROM " + DATEITEM_TABLE + " WHERE " + DATEITEM_TABLE_1 + " = " + "'" + value + "'" + ";";
+        Cursor cursor = db.rawQuery(searchQuery, null);
+        return DateItemCursorParser(cursor);
+    }
+
     public ArrayList<Categories> readCategoriesTable() {
 
         // Select All Query
@@ -119,6 +138,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(searchQuery, null);
         return CategoriesCursorParser(cursor);
     }
+
+    public ArrayList<Categories> ReturnCategoryByID(String value) {
+
+        // Search Query
+
+        String searchQuery = "SELECT * FROM " + CATEGORIES_TABLE + " WHERE " + CATEGORIES_TABLE_1 + " = " + "'" + value + "'" + ";";
+        Cursor cursor = db.rawQuery(searchQuery, null);
+        return CategoriesCursorParser(cursor);
+    }
+
 
     private ArrayList<Categories> CategoriesCursorParser(Cursor cursor) {
 
@@ -151,4 +180,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
     }
+
+    private ArrayList<DateItem> DateItemCursorParser(Cursor cursor) {
+
+        ArrayList<DateItem> results = new ArrayList<>();
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                try {
+                    int DATA1 = cursor.getInt(cursor.getColumnIndex(DATEITEM_TABLE_1));
+                    String DATA2 = cursor.getString(cursor.getColumnIndex(DATEITEM_TABLE_2));
+                    String DATA3 = cursor.getString(cursor.getColumnIndex(DATEITEM_TABLE_3));
+                    long DATA4 = cursor.getLong(cursor.getColumnIndex(DATEITEM_TABLE_4));
+                    int DATA5 = cursor.getInt(cursor.getColumnIndex(DATEITEM_TABLE_5));
+
+
+                    results.add(new DateItem(DATA1, DATA2, DATA3, DATA4, DATA5));
+                } catch (Exception e) {
+                    Log.e("Error", "Error");
+                }
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        if (results.size() == 0)
+            return null;
+        else {
+            return results;
+        }
+
+    }
+
+
 }
