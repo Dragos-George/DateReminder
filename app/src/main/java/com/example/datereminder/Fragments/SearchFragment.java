@@ -7,9 +7,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.datereminder.Model.DatabaseHelper;
 import com.example.datereminder.Model.DateItem;
@@ -27,7 +30,8 @@ public class SearchFragment extends Fragment {
     private RecyclerView recyclerView;
     private DateItemAdapter recyclerViewAdapter;
     private ArrayList<DateItem> dateItemList = new ArrayList<DateItem>();
-
+    private EditText searchBar;
+    DatabaseHelper db;
     public SearchFragment() {
         // Required empty public constructor
     }
@@ -44,6 +48,31 @@ public class SearchFragment extends Fragment {
 
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(recyclerViewAdapter);
+        searchBar = view.findViewById(R.id.fragment_search_edittext);
+
+        db = new DatabaseHelper(getActivity());
+        db.createDatabase();
+
+        searchBar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                dateItemList.clear();
+               dateItemList = db.SearchDateItemTable(searchBar.getText().toString());
+               if(!dateItemList.isEmpty())
+               recyclerViewAdapter.notifyDataSetChanged();
+
+            }
+        });
 
         //populate recyclerview
 
