@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.Toast;
 
 import com.example.datereminder.FirstItem;
 import com.example.datereminder.MainActivity;
@@ -23,8 +24,12 @@ import com.example.datereminder.Model.FutureAdapter;
 import com.example.datereminder.R;
 import com.google.type.DayOfWeek;
 
+import java.time.Instant;
 import java.time.MonthDay;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class HomeFragment extends Fragment {
@@ -39,7 +44,6 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         CalendarView calendarView = view.findViewById(R.id.home_calendar);
         calendarView.setFirstDayOfWeek(DayOfWeek.MONDAY_VALUE);
-//        calendarView.setTopbarVisible(false);
 
         recyclerView = view.findViewById(R.id.homeRecyclerView);
 
@@ -52,6 +56,27 @@ public class HomeFragment extends Fragment {
 
         db = new DatabaseHelper(getActivity());
         db.createDatabase();
+
+
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                Date date = new Date();
+                date.setYear(year);
+                date.setMonth(month);
+                date.setDate(dayOfMonth);
+                //date = new Date(year, month, dayOfMonth);
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(year, month, dayOfMonth, 0, 0, 0);
+
+                //calendar.setTime(date);
+                //Instant instant = Instant.
+                Toast.makeText(getActivity(), calendar.getTimeInMillis()/1000 + "", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
 //        dateItemList= db.readDateItem();
 //        dateItemList= db.readDateItem();
 //        dateItemAdapter.notifyDataSetChanged();

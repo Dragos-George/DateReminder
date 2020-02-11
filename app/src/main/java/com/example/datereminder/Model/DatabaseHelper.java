@@ -148,7 +148,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return CategoriesCursorParser(cursor);
     }
 
-
     private ArrayList<Categories> CategoriesCursorParser(Cursor cursor) {
 
         ArrayList<Categories> results = new ArrayList<>();
