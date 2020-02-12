@@ -61,20 +61,19 @@ public class HomeFragment extends Fragment {
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                Date date = new Date();
-                date.setYear(year);
-                date.setMonth(month);
-                date.setDate(dayOfMonth);
-                //date = new Date(year, month, dayOfMonth);
-                Calendar calendar = Calendar.getInstance();
-                calendar.set(year, month, dayOfMonth, 0, 0, 0);
 
-                //calendar.setTime(date);
-                //Instant instant = Instant.
-                Toast.makeText(getActivity(), calendar.getTimeInMillis()/1000 + "", Toast.LENGTH_SHORT).show();
+                dateItemList.clear();
+
+                ArrayList<DateItem> searchResult = db.ReturnDateItemByDate(year, month, dayOfMonth);
+                if (searchResult != null) {
+                    dateItemList.addAll(searchResult);
+                }
+
+                dateItemAdapter.notifyDataSetChanged();
+
+                Toast.makeText(getActivity(), dateItemList.size() + "", Toast.LENGTH_SHORT).show();
             }
         });
-
 
 
 //        dateItemList= db.readDateItem();

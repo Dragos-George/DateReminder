@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void printListDebuggingDateItem(ArrayList<DateItem> results) {
         for (DateItem esad : results) {
-            Log.e("sadfsdfg ", esad.getName() + " " + esad.getDescription() + " " + esad.getDate());
+            Log.e("sadfsdfg ", esad.getName() + " " + esad.getDescription() + " " + esad.getYear());
         }
     }
 

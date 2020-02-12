@@ -29,8 +29,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATEITEM_TABLE_1 = "id";
     private static final String DATEITEM_TABLE_2 = "name";
     private static final String DATEITEM_TABLE_3 = "description";
-    private static final String DATEITEM_TABLE_4 = "datetimelong";
-    private static final String DATEITEM_TABLE_5 = "categories_id";
+    private static final String DATEITEM_TABLE_4 = "categories_id";
+    private static final String DATEITEM_TABLE_5 = "year";
+    private static final String DATEITEM_TABLE_6 = "month";
+    private static final String DATEITEM_TABLE_7 = "day";
 
     public DatabaseHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -76,30 +78,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Select All Query
         String selectQuery = "SELECT * FROM " + DATEITEM_TABLE + ";";
         Cursor cursor = db.rawQuery(selectQuery, null);
-
-        // looping through all rows and adding to list
-        if (cursor.moveToFirst()) {
-            do {
-                try {
-                    int DATA1 = cursor.getInt(cursor.getColumnIndex(DATEITEM_TABLE_1));
-                    String DATA2 = cursor.getString(cursor.getColumnIndex(DATEITEM_TABLE_2));
-                    String DATA3 = cursor.getString(cursor.getColumnIndex(DATEITEM_TABLE_3));
-                    long DATA4 = cursor.getLong(cursor.getColumnIndex(DATEITEM_TABLE_4));
-                    int DATA5 = cursor.getInt(cursor.getColumnIndex(DATEITEM_TABLE_5));
-
-                    results.add(new DateItem(DATA1, DATA2, DATA3, DATA4, DATA5));
-                } catch (Exception e) {
-                    Log.e("Error", "Error");
-                }
-
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
-        if (results.size() == 0)
-            return null;
-        else {
-            return results;
-        }
+        return DateItemCursorParser(cursor);
     }
 
     public ArrayList<DateItem> SearchDateItemTable(String value) {
@@ -107,6 +86,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Search Query
 
         String searchQuery = "SELECT * FROM " + DATEITEM_TABLE + " WHERE " + DATEITEM_TABLE_2 + " LIKE " + "'%" + value + "%' OR " + DATEITEM_TABLE_3 + " LIKE " + "'%" + value + "%';";
+        Cursor cursor = db.rawQuery(searchQuery, null);
+        return DateItemCursorParser(cursor);
+    }
+
+    public ArrayList<DateItem> ReturnDateItemByDate(int year, int month, int day) {
+
+        // Search Query
+
+        String searchQuery = "SELECT * FROM " + DATEITEM_TABLE + " WHERE " + DATEITEM_TABLE_5 + " = " + year + " AND " + DATEITEM_TABLE_6 + " = " + month + " AND " + DATEITEM_TABLE_7 + " = " + day + ";";
+        //Log.e("dfs", searchQuery);
         Cursor cursor = db.rawQuery(searchQuery, null);
         return DateItemCursorParser(cursor);
     }
@@ -189,13 +178,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do {
                 try {
                     int DATA1 = cursor.getInt(cursor.getColumnIndex(DATEITEM_TABLE_1));
-                    String DATA2 = cursor.getString(cursor.getColumnIndex(DATEITEM_TABLE_2));
+                    String  DATA2 = cursor.getString(cursor.getColumnIndex(DATEITEM_TABLE_2));
                     String DATA3 = cursor.getString(cursor.getColumnIndex(DATEITEM_TABLE_3));
-                    long DATA4 = cursor.getLong(cursor.getColumnIndex(DATEITEM_TABLE_4));
+                    int DATA4 = cursor.getInt(cursor.getColumnIndex(DATEITEM_TABLE_4));
                     int DATA5 = cursor.getInt(cursor.getColumnIndex(DATEITEM_TABLE_5));
+                    int DATA6 = cursor.getInt(cursor.getColumnIndex((DATEITEM_TABLE_6)));
+                    int DATA7 = cursor.getInt(cursor.getColumnIndex(DATEITEM_TABLE_7));
 
-
-                    results.add(new DateItem(DATA1, DATA2, DATA3, DATA4, DATA5));
+                    results.add(new DateItem(DATA1, DATA2, DATA3, DATA4, DATA5, DATA6, DATA7));
                 } catch (Exception e) {
                     Log.e("Error", "Error");
                 }
